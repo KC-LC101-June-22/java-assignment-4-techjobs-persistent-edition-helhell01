@@ -37,7 +37,7 @@ public class SkillController {
     public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill,
                                          Errors errors, Model model) {
         if (errors.hasErrors()) {
-            return "employers/add";
+            return "skills/add";
         }
         skillRepository.save(newSkill);
         return "redirect:";
@@ -50,7 +50,7 @@ public class SkillController {
         if (optSkill.isPresent()) {
             Skill skill = (Skill) optSkill.get();
             model.addAttribute("skill", skill);
-            return "employers/view";
+            return "skills/view";
         } else {
             return "redirect:../";
         }
